@@ -7,7 +7,6 @@ body {
         font-size: 18px;
         line-height: 34px;
         color: #777777;    
-        background: url("../images/concrete_seamless.png");
         width: 100%;
         max-width: 960px;
         margin: 0 auto;
@@ -20,10 +19,9 @@ h1, h2, h3 { color: #4aaaa5;
        font-weight: 700;
 }
 h1 {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     font-size: 30px;
-    line-height: 49px;
-    border-bottom: 3px solid #dddddd;
+    line-height: 9px;
 }
 h2, h3 { font-size: 22px; }
 h6 { font-size: 22px; font-weight: 700; color: #ffffff; text-align: center; line-height: 4px; position: static; }
@@ -59,4 +57,8 @@ img {
 
 #button {
     text-align: center;
+}
+
+.QandA {
+    color: #453B0A;
 }
