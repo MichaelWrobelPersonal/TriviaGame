@@ -6,6 +6,9 @@ let choiceB =   ['What',  'Somebody', 'I Dont Know', 'Today',     'Never', 'I Do
 let choiceC =   ['Where', 'What',     'I Know Who',  'Tommorrow', 'Maybe', 'I Dont Care', 'Why',  'Huh', ]
 let numQA = 0;
 
+$("#questions").hide();   // Initially hide the questions
+$("#results").hide();     // Initially hode the results
+
  //  Trivia clock object.
 let clock = {
 
@@ -41,6 +44,9 @@ let clock = {
         clock.time = 120;
         console.log('Started');
         $("#start").hide();  // Hide the start button once it is clicked
+        $("#baseball-logo").hide();  // And the Logo
+        $("#questions").show();   // Then show the questions
+        $("#results").hide(); // Hide results until finished
       }
   },
   stop: function()
@@ -64,7 +70,9 @@ let clock = {
     {
         console.log('Time-Out-Reset');
         clock.stop();
-        $("#time-display").text("You Lost!!!"); 
+        $("#time-display").text("You Lost!!!");
+        $("#questions").hide();
+        $("#results").show();
     }
   },
 
@@ -132,6 +140,8 @@ function checkAnswer(answer,choice)
     else
     {
       $("#time-display").text("You Won!!!");
+      $("#questions").hide();
+      $("#results").show();
       clock.stop();     
     }
   }

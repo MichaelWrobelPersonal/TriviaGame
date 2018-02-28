@@ -55,10 +55,49 @@ img {
     text-align: center;
 }
 
-#button {
+#introduction {
+    visibility: visible;
     text-align: center;
+}
+
+#start { border-style: outset;
+         border-radius: 5px;
+         border-width: 2px;
+         border-color: seagreen;
+         color: white;
+         background-color: royalblue;
+         height: 25px;
+         width: 100px;
+         font-weight: bold;
+         font-family: Roboto;
+        }
+
+#baseball-logo {
+    min-width: 128px;
+    min-height: 150px;
+    max-width: 256px;
+    max-height: 300px;
+
+    margin: 15px;
+ }
+
+
+#questions {
+    visibility: visible;
+    text-align: left;
 }
 
 .QandA {
     color: #453B0A;
+}
+
+#results {
+    visibility: visible;
+    text-align: center;
+}
+
+#classical
+{
+    width: 350px;
+    height: 200px;
 }
