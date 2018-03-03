@@ -15,7 +15,7 @@ let clock = {
   time: 0,
   running: false,
   timerId: undefined,
-  display: "00:00",
+  display: "Time Remaining: 00",
   startOnReset: true, // Always set to true
 
   reset: function() {
@@ -35,7 +35,7 @@ let clock = {
         clearInterval(clock.timerId);
         clock.timerId = setInterval(clock.count,1000);
         clock.running = true;
-        clock.time = 120;
+        clock.time = 60;
         $("#start").hide();  // Hide the start button once it is clicked
         $("#baseball-logo").hide();  // And the Logo
         $("#questions").show();   // Then show the questions
@@ -53,7 +53,7 @@ let clock = {
   {
     //  decrement time by 1.
     clock.time -= 1;
-    clock.display = clock.timeConverter(clock.time);
+    clock.display = clock.timeRemaining(clock.time);
     $("#time-display").text(clock.display);
     //  console.log('Count :' + clock.display);
     if (clock.time < 0)
@@ -66,7 +66,7 @@ let clock = {
   },
 
   //  Convert time to soemthing pretty
-  timeConverter: function(t) {
+  timeRemaining: function(t) {
 
     //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
     var minutes = Math.floor(t / 60);
@@ -76,15 +76,7 @@ let clock = {
       seconds = "0" + seconds;
     }
 
-    if (minutes === 0) {
-      minutes = "00";
-    }
-
-    else if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-
-    return minutes + ":" + seconds;
+    return "Time Remaining :" + seconds;
   }
 };
 
@@ -127,6 +119,37 @@ function checkAnswer(answer,choice)
     }
   }
 };
+
+document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+  if (clock.running) // If questions and answer are presented
+  {
+    console.log('keydown event\n\n' + 'key: ' + keyName);
+    switch( keyName )
+    {
+      case 'A':
+      case 'a':
+        checkA();
+        break;
+      case 'B':
+      case 'b':
+        checkB();
+        break;
+      case 'C':
+      case 'c':
+        checkC();
+        break;
+      default:
+      // ignore all keys except ABC
+      alert('Please choose A, B, or C\n\n');     
+    }
+  }
+  else
+  {
+    console.log('clock is not running\n\n');     
+  }
+});
+
 
 window.onload = function() {
 
